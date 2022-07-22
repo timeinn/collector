@@ -21,18 +21,18 @@ var perPhysicalProcValues = []string{
 	"cpu_logical_processors",
 }
 
-func (r *CPU) Collect() (cpuInfo map[string]string, err error) {
+func (r *CPU) Collect() (cpuInfo HWInfo, err error) {
 	cpuInfo, err = getCpuInfo()
 	return
 }
 
-func getCpuInfo() (cpuInfo map[string]string, err error) {
+func getCpuInfo() (cpuInfo HWInfo, err error) {
 	lines, err := readProcFile()
 	if err != nil {
 		return
 	}
 
-	cpuInfo = make(map[string]string)
+	cpuInfo = make(HWInfo)
 	// Implementation of a set that holds the physical IDs
 	physicalProcIDs := make(map[string]struct{})
 

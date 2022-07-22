@@ -5,8 +5,8 @@ package cpu
 
 var nodeNRegex = regexp.MustCompile("^node[0-9]+$")
 
-func getCpuInfo() (cpuInfo map[string]string, err error) {
-	cpuInfo = make(map[string]string)
+func getCpuInfo() (cpuInfo HWInfo, err error) {
+	cpuInfo = make(HWInfo)
 
 	procCpu, err := readProcCpuInfo()
 	if err != nil {
