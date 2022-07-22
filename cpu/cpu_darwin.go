@@ -20,9 +20,9 @@ var cpuMap = map[string]string{
 	"hw.cpufrequency": "mhz",
 }
 
-func getCpuInfo() (cpuInfo CPUInfo, err error) {
+func getCpuInfo() (cpuInfo HWInfo, err error) {
 
-	cpuInfo = make(CPUInfo)
+	cpuInfo = make(HWInfo)
 
 	for option, key := range cpuMap {
 		fmt.Println("opt", option)

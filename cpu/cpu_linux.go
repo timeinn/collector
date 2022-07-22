@@ -22,7 +22,7 @@ var perPhysicalProcValues = []string{
 }
 
 func (r *CPU) Collect() (cpuInfo map[string]string, err error) {
-	result, err = getCpuInfo()
+	cpuInfo, err = getCpuInfo()
 	return
 }
 

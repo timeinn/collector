@@ -7,11 +7,9 @@ import (
 )
 
 func TestGet(t *testing.T) {
-	info, arr, err := cpu.Get()
+	info, _, err := cpu.Get()
 	if err != nil {
 		t.Error(err)
 	}
-
-	t.Log(arr)
 	t.Log(json.ToJSONf(info))
 }
