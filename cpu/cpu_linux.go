@@ -3,6 +3,13 @@
 
 package cpu
 
+import (
+	"bufio"
+	"os"
+	"regexp"
+	"strconv"
+)
+
 var cpuMap = map[string]string{
 	"vendor_id":  "vendor_id",
 	"model name": "model_name",

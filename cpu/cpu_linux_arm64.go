@@ -3,6 +3,12 @@
 
 package cpu
 
+import (
+	"os"
+	"regexp"
+	"strconv"
+)
+
 var nodeNRegex = regexp.MustCompile("^node[0-9]+$")
 
 func getCpuInfo() (cpuInfo HWInfo, err error) {
