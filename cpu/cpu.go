@@ -66,15 +66,15 @@ func Get() (*CPU, []string, error) {
 	// We serialize int to string in the windows version of 'GetCpuInfo' and back to int here. This is less than
 	// ideal but we don't want to break backward compatibility for now. The entire gohai project needs a rework but
 	// for now we simply adding typed field to avoid using maps of interface..
-	//c.CpuPkgs = utils.GetUint64(cpuInfo, "cpu_pkgs", &warnings)
-	//c.CpuNumaNodes = utils.GetUint64(cpuInfo, "cpu_numa_nodes", &warnings)
-	//c.CacheSizeL1Bytes = utils.GetUint64(cpuInfo, "cache_size_l1", &warnings)
-	//c.CacheSizeL2Bytes = utils.GetUint64(cpuInfo, "cache_size_l2", &warnings)
-	//c.CacheSizeL3Bytes = utils.GetUint64(cpuInfo, "cache_size_l3", &warnings)
-	//
-	//c.CpuCores = utils.GetUint64(cpuInfo, "cpu_cores", &warnings)
-	//c.CpuLogicalProcessors = utils.GetUint64(cpuInfo, "cpu_logical_processors", &warnings)
-	//c.Mhz = utils.GetFloat64(cpuInfo, "mhz", &warnings)
+	c.CpuPkgs = cpuInfo.GetUint64("cpu_pkgs")
+	c.CpuNumaNodes = cpuInfo.GetUint64("cpu_numa_nodes")
+	c.CacheSizeL1Bytes = cpuInfo.GetUint64("cache_size_l1")
+	c.CacheSizeL2Bytes = cpuInfo.GetUint64("cache_size_l2")
+	c.CacheSizeL3Bytes = cpuInfo.GetUint64("cache_size_l3")
+
+	c.CpuCores = cpuInfo.GetUint64("cpu_cores")
+	c.CpuLogicalProcessors = cpuInfo.GetUint64("cpu_logical_processors")
+	c.Mhz = cpuInfo.GetFloat64("mhz")
 
 	// cache_size uses the format '9216 KB'
 	cacheSizeString := strings.Split(cpuInfo.GetString("cache_size"), " ")[0]
