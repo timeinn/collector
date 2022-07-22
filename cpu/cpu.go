@@ -54,7 +54,7 @@ func Get() (*CPU, []string, error) {
 		return nil, nil, err
 	}
 
-	warnings := []string{}
+	var warnings []string
 	c := &CPU{}
 
 	c.VendorId = cpuInfo.GetString("vendor_id")
